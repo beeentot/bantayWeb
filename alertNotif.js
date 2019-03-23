@@ -1,22 +1,19 @@
-const axios = require('axios');
+
 
 function levelOne() {
 
-	axios.get('https://bantay-26ebe.firebaseio.com/Users/Residents/3MKiTmKLWVdsCAmfZ9Y8LEQFZAj2')
-		.then(function (response) {
-		// handle success
-		console.log(response);
-		console.log("KASJDL");
-	})
-	.catch(function (error) {
-	// handle error
-	console.log(error);
-	})
-	.then(function () {
-	// always executed
-	});
+	window.alert("LEVEL 1");
 }
 
+function levelTwo() {
+
+	window.alert("LEVEL 2");
+}
+
+function levelThree() {
+
+	window.alert("LEVEL 3");
+}
 
 	// const messaging = firebase.messaging();
 
