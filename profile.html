@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://getbootstrap.com/favicon.ico">
+
+    <title>BANTAY</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+
+    <!--FIREBASE-->
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark navbar-expand-md fixed-top bg-dark flex-row p-0 shadow clearfix">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">BANTAY</a>
+      <ul class="navbar-nav col-sm-8 col-md-9">
+        <li class="nav-item">
+          <a class="nav-link" href="home.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="rescueRequest.html">Rescue Requests</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="deployedRescue.html">Deployed Rescue Requests</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="reports.html">Reports</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="alert.html">Alert</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="profile.html">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="rescuer.html">Rescuer</a>
+        </li>
+
+       <!--  <li class="nav-item float-right">
+          <a class="nav-link" href="#">Sign out</a>
+        </li> -->
+      </ul>
+      <ul class="navbar-nav col-sm-1 col-md-1">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html" onclick="logout()">Sign out</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container-fluid">
+      <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">Profile</h1>
+        </div> 
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="card-title mb-4">
+                  <div class="d-flex justify-content-start">
+                    <div class="image-container">
+<!--                       <img src="http://placehold.it/150x150" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail" /> -->
+                      <div class="middle mt-1">
+<!--                           <input type="button" class="btn btn-secondary" id="btnChangePicture" value="Change" />
+                          <input type="file" style="display: none;" id="profilePicture" name="file" /> -->
+<!--                           <input type="file" id="fileButton" value="upload" />  -->
+                      </div>
+                    </div>
+                    <div class="ml-auto">
+                        <input type="button" class="btn btn-primary d-none" id="btnDiscard" value="Discard Changes" />
+                    </div>
+                  </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="basicInfo-tab" data-toggle="tab" href="#basicInfo" role="tab" aria-controls="basicInfo" aria-selected="true">BASIC INFO</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="connectedServices-tab" data-toggle="tab" href="#connectedServices" role="tab" aria-controls="connectedServices" aria-selected="false">ABOUT</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content ml-1" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
+                                      <div class="row">
+                                          <div class="col-1">
+                                              <label style="font-weight:bold;">Email</label>
+                                          </div>
+                                          <div class="col-4">
+                                              <p id="email_display"></p>
+                                          </div>
+                                          <div class="col-5">
+                                          </div>
+<!--                                           <div class="col-2">
+                                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editEmail">
+                                                Edit
+                                              </button>
+                                          </div> -->
+                                      </div>
+                                      <hr />
+                                      <div class="row">
+                                          <div class="col-1">
+                                              <label style="font-weight:bold;">Password</label>
+                                          </div>
+                                          <div class="col-4">
+                                              <a id="pass_display"></a>
+                                          </div>
+                                          <div class="col-5">
+                                          </div>
+                                          <div class="col-2">
+                                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editPassword">
+                                                Edit
+                                              </button>
+                                          </div>
+                                      </div>
+                                      <hr />
+                                    </div>
+                                    <div class="tab-pane fade" id="connectedServices" role="tabpanel" aria-labelledby="ConnectedServices-tab">
+                                      <div class="col-sm-9 col-md-9 col-8">
+                                          <p id="about"></p>
+                                      </div>
+                                      <div class="col-sm-3 col-md-2 col-4">
+                                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#aboutUs">Edit</button>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="modal fade" id="aboutUs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <form id="form_about">
+                <div class="modal-body">
+                  <div class="form-group">
+                    <label for="exampleFormControlTextarea1"><h4>Edit About</h4></label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+               </form> 
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="editPassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <form>
+              <div class="modal-body">
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1">Old Password</label>
+                    <input type="text" class="form-control" id="oldPass" placeholder="Email">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1">New Password</label>
+                    <input type="text" class="form-control" id="newPass" placeholder="Email">
+                  </div>
+              </div>
+              <div class="modal-footer">
+              <!--   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="save_user();">Edit</button> -->
+                <button type="submit" class="btn btn-primary" onclick="update_password();">Change</button>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+
+<!--         <div class="modal fade" id="editEmail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Change Email</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <form>
+              <div class="modal-body">
+                  <div class="form-group">
+                  <label for="exampleFormControlInput1">Email</label>
+                  <input type="email" class="form-control" id="newEmail" placeholder="Email">
+              </div>
+              <div class="form-group">
+                  <label for="exampleFormControlInput1">Old Password</label>
+                  <input type="text" class="form-control" id="oldPass" placeholder="Email">
+              </div>
+              <div class="modal-footer">
+                 <button type="button" class="btn btn-primary" onclick="update_email();">Change</button>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div> -->
+
+      </main>  
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/vendor/jquery-slim.min.js" ></script>
+    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="assets/js/vendor/popper.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+
+    <script src="udPass.js"></script>
+    <script src="udEmail.js"></script>
+
+    <script src="fireBase.js"></script>
+    <script src="profile.js"></script>
+    <script src="logout.js"></script>
+  </body>
+</html>
